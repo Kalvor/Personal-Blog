@@ -39,4 +39,5 @@ module "aks" {
   aks_dns_prefix  = var.aks_dns_prefix
   subnet_id       = module.vnet.k8s_subnet_id
   app_gateway_id  = module.app_gateway.id
+  app_gateway_subnet_id = module.vnet.app_gateway_subnet_id
 }
