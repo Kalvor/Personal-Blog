@@ -34,6 +34,10 @@ resource "azurerm_kubernetes_cluster" "aks" {
   ingress_application_gateway {
     gateway_id = var.app_gateway_id
   }
+
+  network_profile {
+    network_plugin = "azure"
+  }
 }
 
 resource "azurerm_role_assignment" "aks_to_acr" {
@@ -44,6 +48,18 @@ resource "azurerm_role_assignment" "aks_to_acr" {
 
 resource "azurerm_role_assignment" "aks_to_appgwp_subnet" {
   scope                = var.app_gateway_subnet_id
-  principal_id         = azurerm_kubernetes_cluster.aks.ingress_application_gateway[0].ingress_application_gateway_identity[0].client_id
+  principal_id         = azurerm_kubernetes_cluster.aks.ingress_application_gateway[0].ingress_application_gateway_identity[0].object_id
   role_definition_name = "Network Contributor"
+}
+
+resource "azurerm_role_assignment" "aks_to_appgw_rg" {
+  scope                = var.app_gateway_id
+  principal_id         = azurerm_kubernetes_cluster.aks.ingress_application_gateway[0].ingress_application_gateway_identity[0].object_id
+  role_definition_name = "Contributor"
+}
+
+resource "azurerm_role_assignment" "aks_to_appgwp" {
+  scope                = var.app_gateway_id
+  principal_id         = azurerm_kubernetes_cluster.aks.ingress_application_gateway[0].ingress_application_gateway_identity[0].object_id
+  role_definition_name = "Reader"
 }

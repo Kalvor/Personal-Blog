@@ -34,6 +34,7 @@ module "aks" {
   source          = "./modules/aks"
   location        = var.resource_group_location
   rg_name         = var.resource_group_name
+  rg_id           = module.resource_group.id
   acr_name_prefix = var.acr_name_prefix
   aks_name        = var.aks_name 
   aks_dns_prefix  = var.aks_dns_prefix
