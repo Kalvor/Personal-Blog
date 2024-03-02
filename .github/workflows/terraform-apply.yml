@@ -21,4 +21,4 @@ jobs:
 
       - name: Terraform Apply
         run: |
-          terraform apply -auto-approve -var-file=vars.tfvars
+          terraform apply -auto-approve -var-file=${{ github.workspace }}/infra/vars.tfvars
