@@ -1,3 +1,20 @@
+variable "AZURE_CLIENT_ID" {
+  type = string
+}
+
+variable "ARM_CLIENT_SECRET" {
+  type = string
+}
+
+variable "AZURE_TENANT_ID" {
+  type = string
+}
+
+variable "AZURE_SUBSCRIPTION_ID" {
+  type = string
+}
+
+
 variable "resource_group_location" {
   type = string
 }
