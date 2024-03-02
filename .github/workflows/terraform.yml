@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  terraform-apply:
+  terraform run :
     runs-on: ubuntu-latest
     defaults:
       run: 
@@ -25,10 +25,10 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         
       - name: 'Terraform Format'
-        run: terraform fmt -check >> $GITHUB_OUTPUT
+        run: terraform fmt -check
         
       - name: 'Terraform Init'
-        run: terraform init  >> $GITHUB_OUTPUT
+        run: terraform init
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -36,7 +36,7 @@ jobs:
           ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
           
       - name: 'Terraform Plan'
-        run: terraform plan -var-file=vars.tfvars -out=tfplan -lock=false  >> $GITHUB_OUTPUT
+        run: terraform plan -var-file=vars.tfvars -out=tfplan -lock=false
         env:
           ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
@@ -45,4 +45,4 @@ jobs:
           
       - name: 'Terraform Apply'
         run: |
-          terraform apply -auto-approve tfplan  >> $GITHUB_OUTPUT
+          terraform apply -auto-approve tfplan
