@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  terraform run :
+  Run-Terraform :
     runs-on: ubuntu-latest
     defaults:
       run: 
