@@ -29,4 +29,4 @@ jobs:
 
       - name: 'Terraform Apply'
         run: |
-          terraform apply -auto-approve -var-file= infra/vars.tfvars
+          terraform apply -auto-approve -var-file= ./infra/vars.tfvars
