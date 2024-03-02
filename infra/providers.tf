@@ -14,7 +14,7 @@ terraform {
 }
 
 provider "azurerm" {
-  use_msi = true
+  use_msi         = true
   client_id       = var.AZURE_CLIENT_ID
   client_secret   = var.ARM_CLIENT_SECRET
   tenant_id       = var.AZURE_TENANT_ID
