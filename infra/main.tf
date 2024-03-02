@@ -18,15 +18,15 @@ module "vnet" {
   address_space              = var.vnet_address_space
 }
 
-module "app_gateway"{
-  depends_on      = [module.resource_group.id]
-  source          = "./modules/app_gateway"
-  name            = var.app_gateway_name
-  location        = var.resource_group_location
-  rg_name         = var.resource_group_name
-  subnet_id       = module.vnet.app_gateway_subnet_id
-  subnet_name     = var.app_gateway_name
-  public_ip_name  = var.app_gateway_public_ip_name
+module "app_gateway" {
+  depends_on     = [module.resource_group.id]
+  source         = "./modules/app_gateway"
+  name           = var.app_gateway_name
+  location       = var.resource_group_location
+  rg_name        = var.resource_group_name
+  subnet_id      = module.vnet.app_gateway_subnet_id
+  subnet_name    = var.app_gateway_name
+  public_ip_name = var.app_gateway_public_ip_name
 }
 
 module "aks" {
@@ -36,7 +36,7 @@ module "aks" {
   rg_name               = var.resource_group_name
   rg_id                 = module.resource_group.id
   acr_name_prefix       = var.acr_name_prefix
-  aks_name              = var.aks_name 
+  aks_name              = var.aks_name
   aks_dns_prefix        = var.aks_dns_prefix
   subnet_id             = module.vnet.k8s_subnet_id
   app_gateway_id        = module.app_gateway.id
