@@ -2,6 +2,7 @@ resource "azurerm_network_security_group" "network_security_group" {
   name                = var.nsg_name
   location            = var.location
   resource_group_name = var.rg_name
+  
   security_rule {
     name                       = "Port_100"
     priority                   = 100
@@ -13,7 +14,7 @@ resource "azurerm_network_security_group" "network_security_group" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-  
+
   security_rule {
     name                       = "AllowAnyToAny"
     priority                   = 101

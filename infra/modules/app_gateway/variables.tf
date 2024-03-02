@@ -1,13 +1,13 @@
 variable "location" {
-  type        = string
+  type = string
 }
 
 variable "rg_name" {
-  type        = string
+  type = string
 }
 
 variable "name" {
-  type        = string
+  type = string
 }
 
 variable "subnet_id"{
@@ -19,5 +19,5 @@ variable "subnet_name"{
 }
 
 variable "public_ip_name" {
-  type        = string
+  type = string
 }

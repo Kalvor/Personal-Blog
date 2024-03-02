@@ -13,17 +13,17 @@ resource "azurerm_container_registry" "acr" {
 }
 
 resource "azurerm_kubernetes_cluster" "aks" {
-  name                = var.aks_name
-  location            = var.location
-  resource_group_name = var.rg_name
-  dns_prefix          = var.aks_dns_prefix
-  node_resource_group = "${var.rg_name}-AKS-Backend"
+  name                             = var.aks_name
+  location                         = var.location
+  resource_group_name              = var.rg_name
+  dns_prefix                       = var.aks_dns_prefix
+  node_resource_group              = "${var.rg_name}-AKS-Backend"
   http_application_routing_enabled = true
   
   default_node_pool {
-    name       = "default"
-    node_count = 1
-    vm_size    = "Standard_D2_v2"
+    name             = "default"
+    node_count       = 1
+    vm_size          = "Standard_D2_v2"
     vnet_subnet_id   = var.subnet_id
   }
 

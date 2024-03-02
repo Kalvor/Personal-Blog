@@ -31,5 +31,5 @@ variable "app_gateway_id" {
 }
 
 variable app_gateway_subnet_id{
-  type=string
+  type = string
 }

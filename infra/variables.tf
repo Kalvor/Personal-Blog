@@ -1,55 +1,55 @@
 variable "resource_group_location" {
-  type        = string
+  type = string
 }
 
 variable "resource_group_name" {
-  type        = string
+  type = string
 }
 
 variable "vnet_nsg_name" {
-  type        = string
+  type = string
 }
 
 variable "vnet_name" {
-  type        = string
+  type = string
 }
 
 variable "vnet_address_space" {
-  type        = string
+  type = string
 }
 
 variable "k8s_subnet_name" {
-  type        = string
+  type = string
 }
 
 variable "k8s_subnet_address" {
-  type        = string
+  type = string
 }
 
 variable "app_gateway_subnet_name" {
-  type        = string
+  type = string
 }
 
 variable "app_gateway_subnet_address" {
-  type        = string
+  type = string
 }
 
 variable "acr_name_prefix" {
-  type        = string
+  type = string
 }
 
 variable "aks_name" {
-  type        = string
+  type = string
 }
 
 variable "aks_dns_prefix" {
-  type        = string
+  type = string
 }
 
 variable "app_gateway_name" {
-  type        = string
+  type = string
 }
 
 variable "app_gateway_public_ip_name" {
-  type        = string
+  type = string
 }
