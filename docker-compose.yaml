@@ -5,3 +5,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
+
+  blog-service:
+    build:
+      context: app/blog-service
+      dockerfile: Dockerfile
+    ports:
+      - "4000:8080"
