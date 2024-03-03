@@ -1,5 +1,11 @@
+using blog_service.RestApi.HealthChecks;
+
 var builder = WebApplication.CreateSlimBuilder(args);
+builder.Services.AddControllers();
 builder.Services.AddCors();
+builder.Services.AddHealthChecks()
+    .AddCheck<DefaultHealthCheck>("Default");
+
 var app = builder.Build();
 app.UseCors(c =>
 {
@@ -8,17 +14,8 @@ app.UseCors(c =>
     c.AllowAnyOrigin();
 });
 
-app.MapGet("/", () =>
-{
-    return "Test";
-});
-var v1Api = app.MapGroup("/api/v1");
-var servicesApi = v1Api.MapGroup("/service");
-
-servicesApi.MapGet("/status", () => {
-    return "Running";
-});
-
+app.MapControllers();
+app.MapHealthChecks("/health");
 app.Run();
 
 

@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blog-service.RestApi", "src\blog-service.RestApi\blog-service.RestApi.csproj", "{C5D65419-9A9F-44B9-899C-AEA9770910B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blog-service.RestApi", "src\blog-service.RestApi\blog-service.RestApi.csproj", "{C5D65419-9A9F-44B9-899C-AEA9770910B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blog-service.Domain", "src\blog-service.Domain\blog-service.Domain.csproj", "{CF9B53EE-DE49-47EA-878C-AC662855870E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blog-service.Application", "src\blog-service.Application\blog-service.Application.csproj", "{4B7F5D2D-AA33-4613-808F-ECB282CFADF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blog-service.External", "src\blog-service.External\blog-service.External.csproj", "{329D18C1-A74A-4D16-91FF-CA62582C3B72}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{C5D65419-9A9F-44B9-899C-AEA9770910B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5D65419-9A9F-44B9-899C-AEA9770910B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5D65419-9A9F-44B9-899C-AEA9770910B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9B53EE-DE49-47EA-878C-AC662855870E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9B53EE-DE49-47EA-878C-AC662855870E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9B53EE-DE49-47EA-878C-AC662855870E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9B53EE-DE49-47EA-878C-AC662855870E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B7F5D2D-AA33-4613-808F-ECB282CFADF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B7F5D2D-AA33-4613-808F-ECB282CFADF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B7F5D2D-AA33-4613-808F-ECB282CFADF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B7F5D2D-AA33-4613-808F-ECB282CFADF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{329D18C1-A74A-4D16-91FF-CA62582C3B72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{329D18C1-A74A-4D16-91FF-CA62582C3B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{329D18C1-A74A-4D16-91FF-CA62582C3B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{329D18C1-A74A-4D16-91FF-CA62582C3B72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
