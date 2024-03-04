@@ -11,14 +11,11 @@ terraform {
     storage_account_name = "tfstatesstorage0001"
     container_name       = "personalblog"
     key                  = "personalblog.tfstate"
+    use_oidc             = true
   }
 }
 
 provider "azurerm" {
-  use_msi         = true
-  client_id       = var.ARM_CLIENT_ID
-  client_secret   = var.ARM_CLIENT_SECRET
-  tenant_id       = var.ARM_TENANT_ID
-  subscription_id = var.ARM_SUBSCRIPTION_ID
   features {}
+  use_oidc = true
 }
