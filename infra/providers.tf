@@ -11,11 +11,9 @@ terraform {
     storage_account_name = "tfstatesstorage0001"
     container_name       = "personalblog"
     key                  = "personalblog.tfstate"
-    use_oidc             = true
   }
 }
 
 provider "azurerm" {
   features {}
-  use_oidc = true
 }
