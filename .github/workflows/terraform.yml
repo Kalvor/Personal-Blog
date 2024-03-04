@@ -12,7 +12,7 @@ env:
   TF_CLOUD_ORGANIZATION: "kalvor-personal"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "personal-blog"
-  CONFIG_DIRECTORY: "./"
+  CONFIG_DIRECTORY: "./infra"
 
 jobs:
   terraform:
@@ -41,9 +41,6 @@ jobs:
           configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
           plan_only: true
 
-      - name: Checkout
-        uses: actions/checkout@v3
-  
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: apply-upload
