@@ -55,6 +55,7 @@ jobs:
         path: ./infra/tfplan
       
   terraform-apply:
+    needs: terraform-plan
     name: 'Terraform Apply'
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
