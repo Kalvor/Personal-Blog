@@ -85,6 +85,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: tfplan
+          path: ./infra/tfplan
 
       - name: 'Terraform Apply'
         uses: hashicorp/terraform-github-actions@master
