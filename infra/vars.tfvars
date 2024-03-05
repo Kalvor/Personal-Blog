@@ -1,5 +1,5 @@
 resource_group_location = "North Europe"
-resource_group_name     = "RG-Personal-Blog"
+resource_group_name     = "RG-Personal-BlogTest"
 
 vnet_address_space         = "10.10.0.0/16"
 k8s_subnet_name            = "personal-blog-k8s"
