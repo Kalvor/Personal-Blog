@@ -3,13 +3,14 @@ use dotenv::dotenv;
 use hyper::Method;
 use log::info;
 use std::env;
-use tokio::signal;
 use tower_http::cors::CorsLayer;
 use tower_http::cors::Any;
 
+use crate::controllers::auth_controller;
 use crate::controllers::service_controller;
 
 mod controllers;
+mod contracts;
 
 #[tokio::main]
 async fn main() {
@@ -31,8 +32,9 @@ async fn main() {
         .allow_origin(Any);
 
     let routes = Router::new()
-        .merge(service_controller::router()
-        .layer(cors));
+        .merge(service_controller::router())
+        .merge(auth_controller::router())
+        .layer(cors);
     
     let bind_address = app_host + ":" + &app_port;
     axum::Server::bind(&bind_address.parse().unwrap())
