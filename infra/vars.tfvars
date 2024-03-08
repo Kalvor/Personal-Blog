@@ -17,3 +17,7 @@ app_gateway_name           = "app-gateway-personal-blog"
 app_gateway_public_ip_name = "pub-ip-personal-blog"
 
 kv_name = "Parsonl-Blog-KV"
+
+sqlserver_name = "sql-server-personal-blog"
+authdb_name = "SQL-Db-Auth"
+blogdb_name = "SQL-Db-Auth"

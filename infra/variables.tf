@@ -57,3 +57,15 @@ variable "app_gateway_public_ip_name" {
 variable "kv_name" {
   type = string
 }
+
+variable "sqlserver_name" {
+  type = string
+}
+
+variable "authdb_name" {
+  type = string
+}
+
+variable "blogdb_name" {
+  type = string
+}

@@ -12,6 +12,17 @@ module "kv" {
   name        = var.kv_name
 }
 
+module "sql" {
+  depends_on      = [module.kv]
+  source          = "./modules/sql"
+  location        = var.resource_group_location
+  rg_name         = var.resource_group_name
+  name            = var.sqlserver_name
+  authdb_name     = var.authdb_name
+  blogdb_name     = var.blogdb_name
+  admin_password  = module.kv.kv_sqlserverpassword
+}
+
 module "vnet" {
   depends_on                 = [module.resource_group.id]
   source                     = "./modules/vnet"

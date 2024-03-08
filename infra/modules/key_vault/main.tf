@@ -16,29 +16,18 @@ resource "azurerm_key_vault" "kv" {
     object_id = data.azurerm_client_config.current.object_id
 
     secret_permissions = [
-      "Get", "Delete", "List", "Set"
+      "Get", "Delete", "List", "Set", "Purge", "Recover"
     ]
   }
 }
 
-resource "random_password" "AuthDbPassword" {
+resource "random_password" "SqlServerPassword" {
   length           = 24
   special          = true
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
-resource "azurerm_key_vault_secret" "AuthDbPasswordSecret" {
-  name         = "AuthDbPassword"
-  value        = random_password.AuthDbPassword.result
-  key_vault_id = azurerm_key_vault.kv.id
-}
-
-resource "random_password" "BlogDbPassword" {
-  length           = 24
-  special          = true
-  override_special = "!#$%&*()-_=+[]{}<>:?"
-}
-resource "azurerm_key_vault_secret" "BlogDbPasswordSecret" {
-  name         = "BlogDbPassword"
-  value        = random_password.BlogDbPassword.result
+resource "azurerm_key_vault_secret" "SqlServerPasswordSecret" {
+  name         = "SqlServerPassword"
+  value        = random_password.SqlServerPassword.result
   key_vault_id = azurerm_key_vault.kv.id
 }
