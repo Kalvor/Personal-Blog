@@ -53,3 +53,7 @@ variable "app_gateway_name" {
 variable "app_gateway_public_ip_name" {
   type = string
 }
+
+variable "kv_name" {
+  type = string
+}

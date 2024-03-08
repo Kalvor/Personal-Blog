@@ -15,3 +15,5 @@ aks_dns_prefix  = "personal-blog-k8s"
 
 app_gateway_name           = "app-gateway-personal-blog"
 app_gateway_public_ip_name = "pub-ip-personal-blog"
+
+kv_name = "Parsonl-Blog-KV"

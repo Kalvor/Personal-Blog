@@ -4,6 +4,14 @@ module "resource_group" {
   name     = var.resource_group_name
 }
 
+module "kv" {
+  depends_on  = [module.resource_group]
+  source      = "./modules/key_vault"
+  location    = var.resource_group_location
+  rg_name     = var.resource_group_name
+  name        = var.kv_name
+}
+
 module "vnet" {
   depends_on                 = [module.resource_group.id]
   source                     = "./modules/vnet"
