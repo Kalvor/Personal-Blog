@@ -8,7 +8,7 @@ services:
     image: blog-service:latest
     ports:
       - "4000:8080"
-      
+
   auth-db:
       image: mysql:5.7
       restart: always
@@ -16,11 +16,11 @@ services:
         MYSQL_DATABASE: 'db'
         MYSQL_ROOT_PASSWORD: 'password'
       ports:
-        - '3306:3306'
+        - '3001:3001'
       expose:
-        - '3306'
+        - '3001'
       volumes:
-        - my-db:/var/lib/mysql
+        - auth-db:/var/lib/mysql
 
   blog-db:
       image: mysql:5.7
@@ -29,13 +29,23 @@ services:
         MYSQL_DATABASE: 'db'
         MYSQL_ROOT_PASSWORD: 'password'
       ports:
-        - '3307:3307'
+        - '4001:4001'
       expose:
-        - '3307'
+        - '4001'
       volumes:
-        - my-db:/var/lib/mysql
+        - blog-db:/var/lib/mysql
 
+  cache:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '4002:4002'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes: 
+      - cache:/data
 
 volumes:
   auth-db:
   blog-db:
+  cache:
+    driver: local
