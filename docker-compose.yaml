@@ -8,3 +8,34 @@ services:
     image: blog-service:latest
     ports:
       - "4000:8080"
+      
+  auth-db:
+      image: mysql:5.7
+      restart: always
+      environment:
+        MYSQL_DATABASE: 'db'
+        MYSQL_ROOT_PASSWORD: 'password'
+      ports:
+        - '3306:3306'
+      expose:
+        - '3306'
+      volumes:
+        - my-db:/var/lib/mysql
+
+  blog-db:
+      image: mysql:5.7
+      restart: always
+      environment:
+        MYSQL_DATABASE: 'db'
+        MYSQL_ROOT_PASSWORD: 'password'
+      ports:
+        - '3307:3307'
+      expose:
+        - '3307'
+      volumes:
+        - my-db:/var/lib/mysql
+
+
+volumes:
+  auth-db:
+  blog-db:
