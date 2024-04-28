@@ -11,6 +11,8 @@ use crate::controllers::service_controller;
 
 mod controllers;
 mod contracts;
+mod jwt;
+mod persistance;
 
 #[tokio::main]
 async fn main() {

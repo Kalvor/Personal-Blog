@@ -8,6 +8,7 @@ axum = { version = "0.6.20" }
 dotenv = { version = "0.15.0" }
 env_logger = { version = "0.10.0" }
 hyper = { version = "0.14.25", features = ["full"] }
+jsonwebtoken = "9.3.0"
 log = { version = "0.4.20" }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = { version = "1.0.95" }
