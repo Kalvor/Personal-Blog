@@ -1,0 +1,57 @@
+name: 'Build and Unit Test'
+
+on:
+  push:
+    branches: 
+    - "*"
+    paths:
+    - app/**
+  workflow_dispatch:
+    
+jobs:
+  authservice:
+    name: 'Auth Service'
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+          working-directory: ./app/auth-service
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          profile: minimal
+          override: true
+
+      - name: Build the project
+        run: cargo build --release
+    
+      - name: Run tests
+        run: cargo test
+
+  blogservice:
+    name: 'Blog Service'
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+          working-directory: ./app/blog-service
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x'
+  
+      - name: Restore dependencies
+        run: dotnet restore
+  
+      - name: Build the project
+        run: dotnet build --configuration Release --no-restore
+  
+      - name: Run tests
+        run: dotnet test --no-restore --verbosity normal
