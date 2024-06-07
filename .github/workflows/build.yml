@@ -55,7 +55,10 @@ jobs:
   
       - name: Tests
         run: dotnet test --no-restore --verbosity normal
-        
+
   blogfront:
     name: 'Blog Front'
     runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
