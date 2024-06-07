@@ -15,7 +15,6 @@ WORKDIR /usr/src/app
 
 # Copy only the built artifacts and configuration files
 COPY --from=builder /usr/src/app/target/release/auth-service .
-COPY --from=builder /usr/src/app/.env .
 
 # Expose the port your application will run on
 EXPOSE 3000

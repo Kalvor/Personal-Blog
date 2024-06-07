@@ -1,7 +1,9 @@
 using blog_service.RestApi.HealthChecks;
 
 var builder = WebApplication.CreateSlimBuilder(args);
+builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddControllers();
+builder.Services.AddLogging();
 builder.Services.AddCors();
 builder.Services.AddHealthChecks()
     .AddCheck<DefaultHealthCheck>("Default");

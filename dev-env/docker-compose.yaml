@@ -1,11 +1,15 @@
 services:
   auth-service:
     image: auth-service:latest
+    env_file:
+      - .env.authservice
     ports:
       - "3000:3000"
 
   blog-service:
     image: blog-service:latest
+    env_file:
+      - .env.blogservice
     ports:
       - "4000:8080"
 
@@ -46,6 +50,8 @@ services:
 
 volumes:
   auth-db:
+    driver: local
   blog-db:
+    driver: local
   cache:
     driver: local
