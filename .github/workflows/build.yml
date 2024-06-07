@@ -7,7 +7,7 @@ on:
     paths:
     - app/**
   workflow_dispatch:
-    
+
 jobs:
   authservice:
     name: 'Auth Service'
@@ -26,10 +26,10 @@ jobs:
           profile: minimal
           override: true
 
-      - name: Build the project
+      - name: Build
         run: cargo build --release
     
-      - name: Run tests
+      - name: Tests
         run: cargo test
 
   blogservice:
@@ -50,8 +50,12 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
   
-      - name: Build the project
+      - name: Build
         run: dotnet build --configuration Release --no-restore
   
-      - name: Run tests
+      - name: Tests
         run: dotnet test --no-restore --verbosity normal
+        
+  blogfront:
+    name: 'Blog Front'
+    runs-on: ubuntu-latest
