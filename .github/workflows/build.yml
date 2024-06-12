@@ -62,3 +62,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+  newsletterfn:
+    name: 'Newsletter Azure Function'
+    runs-on: ubuntu-latest
+    defaults:
+        run:
+          working-directory: ./app/newsletter-fn
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.x'
+  
+      - name: Restore dependencies
+        run: dotnet restore
+  
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+  
+      - name: Tests
+        run: dotnet test --no-restore --verbosity normal
