@@ -69,3 +69,15 @@ variable "authdb_name" {
 variable "blogdb_name" {
   type = string
 }
+
+variable "function_app_plan_name" {
+  type = string
+}
+
+variable "function_sa_name" {
+  type = string
+}
+
+variable "function_name" {
+  type = string
+}

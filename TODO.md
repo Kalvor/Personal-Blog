@@ -1,0 +1,7 @@
+- Add redis to terraforms
+- Add az function to terraforms X
+- Add SA 
+- Add service bus
+- Define database schema for auth service
+- Define database schema for blog-service
+- Implement newsletter az function

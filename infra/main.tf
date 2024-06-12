@@ -61,3 +61,13 @@ module "aks" {
   app_gateway_id        = module.app_gateway.id
   app_gateway_subnet_id = module.vnet.app_gateway_subnet_id
 }
+
+module "az_function"{
+  depends_on    = [module.resource_group.id]
+  source        = "./modules/az_function"
+  location      = var.resource_group_location
+  rg_name       = var.resource_group_name
+  name          = var.function_name
+  sa_name       = var.function_sa_name
+  app_plan_name = var.function_app_plan_name
+}

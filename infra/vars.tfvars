@@ -20,4 +20,8 @@ kv_name = "Parsonl-Blog-KV"
 
 sqlserver_name = "sql-server-personal-blog"
 authdb_name = "SQL-Db-Auth"
-blogdb_name = "SQL-Db-Auth"
+blogdb_name = "SQL-Db-Blog"
+
+function_app_plan_name = "personal-blog-appplan"
+function_name = "personal-blog-newsletter"
+function_sa_name = "personalblognewslettersa"
