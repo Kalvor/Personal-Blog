@@ -15,6 +15,7 @@ compile-all:
 	terraform fmt -check .\infra\ 
 
 setup-dev-env:
+	docker-compose -f .\dev-env\docker-compose.yaml down -v --rmi all --remove-orphans
 	docker build .\app\auth-service\ -t=auth-service:latest
 	docker build .\app\blog-service\ -f ".\app\blog-service\src\blog-service.RestApi\Dockerfile" -t=blog-service:latest
 	docker-compose -f .\dev-env\docker-compose.yaml up --build --force-recreate --no-deps -d

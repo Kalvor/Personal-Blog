@@ -20,7 +20,7 @@ services:
         MYSQL_DATABASE: 'db'
         MYSQL_ROOT_PASSWORD: 'password'
       ports:
-        - '3001:3001'
+        - '3001:3306'
       expose:
         - '3001'
       volumes:
@@ -30,10 +30,12 @@ services:
       image: mysql:5.7
       restart: always
       environment:
-        MYSQL_DATABASE: 'db'
-        MYSQL_ROOT_PASSWORD: 'password'
+        MYSQL_DATABASE: blogservicedb
+        MYSQL_ROOT_PASSWORD: Test1234
+        MYSQL_USER: blogdbuser
+        MYSQL_PASSWORD: Test1234
       ports:
-        - '4001:4001'
+        - '4001:3306'
       expose:
         - '4001'
       volumes:
