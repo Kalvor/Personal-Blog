@@ -15,10 +15,5 @@ namespace blog_service.External.Persistance.Repository
         {
             _context = context;
         }
-
-        public Task<Article> GetSpecificAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
