@@ -1,11 +1,8 @@
-﻿using blog_service.Application.DAL;
-using blog_service.Domain.Entities;
-using blog_service.Domain.SeedWork;
+﻿using blog_service.Domain.SeedWork;
 
 namespace blog_service.External.Persistance.Repository
 {
-    public abstract class GenericRepository<TEntity, TKey> : IGenericRepository<TEntity, TKey>
-        where TKey : IEquatable<TKey>
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity>
         where TEntity : Entity, IAggregateRoot
     {
         protected BlogDbContext _context;
@@ -14,6 +11,19 @@ namespace blog_service.External.Persistance.Repository
         public GenericRepository(BlogDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<TEntity?> GetByIdAsync(uint id, CancellationToken cancellationToken = default)
+        {
+            var entity = await _context
+                .Set<TEntity>()
+                .FindAsync(keyValues: [id], cancellationToken:cancellationToken);
+            return entity;
+        }
+
+        public Task<IQueryable<TEntity>> GetAsync<TResult>(CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
         }
     }
 }

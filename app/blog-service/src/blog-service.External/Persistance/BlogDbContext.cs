@@ -1,6 +1,4 @@
-﻿using blog_service.Domain.Entities;
-using blog_service.Domain.SeedWork;
-using blog_service.External.Persistance.EntityTypeConfigurations;
+﻿using blog_service.Domain.SeedWork;
 using Microsoft.EntityFrameworkCore;
 
 namespace blog_service.External.Persistance
@@ -9,7 +7,7 @@ namespace blog_service.External.Persistance
     {
         public BlogDbContext() { }
         public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options) { }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
