@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using blog_service.Domain.SeedWork;
 
 namespace blog_service.Domain.Entities
 {
-    public sealed class Article : Entity
+    public sealed class Article : Entity, IAggregateRoot
     {
         public string Title { get; set; }
     }

@@ -1,4 +1,4 @@
-﻿using blog_service.Domain.Entities;
+﻿using blog_service.Domain.SeedWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

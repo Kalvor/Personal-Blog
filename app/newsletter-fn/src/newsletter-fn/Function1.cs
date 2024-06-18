@@ -1,16 +1,23 @@
 using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
 namespace newsletter_fn
 {
-    public class Function1
+    public class MyTimerFunction
     {
-        [FunctionName("Function1")]
-        public void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
+        private readonly ILogger _logger;
+
+        public MyTimerFunction(ILoggerFactory loggerFactory)
         {
-            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            _logger = loggerFactory.CreateLogger<MyTimerFunction>();
+        }
+
+        [Function("MyTimerFunction")]
+        public void Run([TimerTrigger("0 */1 * * * *")] TimerInfo myTimer)
+        {
+            _logger.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            _logger.LogInformation($"Next timer schedule at: {myTimer.ScheduleStatus.Next}");
         }
     }
 }

@@ -12,7 +12,14 @@ services:
       - .env.blogservice
     ports:
       - "4000:8080"
-
+  
+  newsletter-fn:
+    image: newsletter-fn:latest
+    env_file:
+      - .env.newsletterfn
+    ports:
+      - "5000:8080"
+      
   auth-db:
       image: mysql:5.7
       restart: always

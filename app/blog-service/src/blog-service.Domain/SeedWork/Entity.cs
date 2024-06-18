@@ -1,4 +1,4 @@
-﻿namespace blog_service.Domain.Entities
+﻿namespace blog_service.Domain.SeedWork
 {
     public abstract class Entity
     {

@@ -2,8 +2,13 @@
   "profiles": {
     "newsletter_fn": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7219",
-      "launchBrowser": false
+      "commandLineArgs": "--port 7219"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 34622,
+      "useSSL": false
     }
   }
 }
