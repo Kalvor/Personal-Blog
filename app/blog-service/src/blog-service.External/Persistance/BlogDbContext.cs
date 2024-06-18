@@ -10,8 +10,6 @@ namespace blog_service.External.Persistance
         public BlogDbContext() { }
         public BlogDbContext(DbContextOptions<BlogDbContext> options) : base(options) { }
 
-        public DbSet<Article> Articles { get; set; }
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
@@ -20,7 +18,6 @@ namespace blog_service.External.Persistance
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ArticleConfiguration());
             base.OnModelCreating(modelBuilder);
         }
     }

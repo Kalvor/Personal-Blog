@@ -4,7 +4,8 @@ using blog_service.Domain.SeedWork;
 
 namespace blog_service.External.Persistance.Repository
 {
-    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity>
+    public abstract class GenericRepository<TEntity, TKey> : IGenericRepository<TEntity, TKey>
+        where TKey : IEquatable<TKey>
         where TEntity : Entity, IAggregateRoot
     {
         protected BlogDbContext _context;

@@ -3,10 +3,11 @@ using blog_service.Domain.SeedWork;
 
 namespace blog_service.Domain.SeedWork
 {
-    public interface IGenericRepository<TEntity>
-        where TEntity : Entity, IAggregateRoot
+    public interface IGenericRepository<TEntity,TKey>
+        where TKey : IEquatable<TKey>
+        where TEntity : Entity<TKey>, IAggregateRoot
     {
         IUnitOfWork UnitOfWork { get; }
-        Task<Article> GetSpecificAsync(Guid id);
+        Task<TEntity> GetByIdAsync(TKey id, CancellationToken cancellationToken = default);
     }
 }
