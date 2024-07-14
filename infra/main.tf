@@ -12,6 +12,14 @@ module "kv" {
   name        = var.kv_name
 }
 
+module "sa" {
+  depends_on  = [module.resource_group]
+  source      = "./modules/storage_account"
+  location    = var.resource_group_location
+  rg_name     = var.resource_group_name
+  name        = var.sa_name
+}
+
 module "sql" {
   depends_on      = [module.kv]
   source          = "./modules/sql"

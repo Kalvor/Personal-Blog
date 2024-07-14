@@ -58,6 +58,10 @@ variable "kv_name" {
   type = string
 }
 
+variable "sa_name" {
+  type = string
+}
+
 variable "sqlserver_name" {
   type = string
 }
