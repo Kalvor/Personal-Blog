@@ -21,6 +21,6 @@ RUN dotnet publish "./newsletter-fn.csproj" -c $BUILD_CONFIGURATION -o /app/publ
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-COPY /app/local.settings.json .
+COPY --from=build /src/src/newsletter-fn/local.settings.json .
 ENV AzureWebJobsScriptRoot=/app \
     AzureFunctionsJobHost__Logging__Console__IsEnabled=true

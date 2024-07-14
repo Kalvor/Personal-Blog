@@ -10,6 +10,7 @@ namespace blog_service.External
         {
             services.AddDbContext<BlogDbContext>(
                 options => options.UseMySql(
+                    dbConnectionString,
                     ServerVersion.AutoDetect(dbConnectionString)
                 )
             );

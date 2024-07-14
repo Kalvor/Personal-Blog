@@ -21,9 +21,24 @@ namespace blog_service.External.Persistance.Repository
             return entity;
         }
 
-        public Task<IQueryable<TEntity>> GetAsync<TResult>(CancellationToken cancellationToken = default)
+        public IQueryable<TEntity> Get<TResult>()
         {
-            throw new NotImplementedException();
+            return _context.Set<TEntity>().AsQueryable();
+        }
+
+        public void Add(TEntity entity)
+        {
+            _context.Add(entity);
+        }
+
+        public void Update(TEntity entity)
+        {
+            _context.Update(entity);
+        }
+
+        public void Delete(TEntity entity)
+        {
+            _context.Remove(entity);
         }
     }
 }

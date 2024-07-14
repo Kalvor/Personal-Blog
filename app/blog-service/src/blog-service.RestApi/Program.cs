@@ -3,6 +3,7 @@ using blog_service.External;
 
 var builder = WebApplication.CreateSlimBuilder(args);
 builder.Configuration.AddEnvironmentVariables();
+builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddLogging();
 builder.Services.AddCors();
@@ -21,6 +22,12 @@ app.UseCors(c =>
     c.AllowAnyMethod();
     c.AllowAnyOrigin();
 });
+
+if(app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 
 app.MapControllers();
 app.MapHealthChecks("/health");

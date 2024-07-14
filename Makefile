@@ -24,5 +24,14 @@ setup-dev-env:
 destroy-dev-env:
 	docker-compose -f .\dev-env\docker-compose.yaml down -v --rmi all --remove-orphans
 
+add-migration:
+	dotnet ef migrations add --project app\blog-service\src\blog-service.External --startup-project app\blog-service\src\blog-service.RestApi --output-dir Persistance\Migrations $(name)
+
+remove-migration:
+	dotnet ef migrations remove --project app\blog-service\src\blog-service.External --startup-project app\blog-service\src\blog-service.RestApi
+
+apply-migration:
+	dotnet ef database update --project app\blog-service\src\blog-service.External --startup-project app\blog-service\src\blog-service.RestApi
+
 test-all:
-	echo "TODO";
+	echo "TODO"
