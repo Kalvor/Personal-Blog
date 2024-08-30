@@ -11,4 +11,9 @@
     <ProjectReference Include="..\blog-service.Domain\blog-service.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Commands\" />
+    <Folder Include="Features\Queries\" />
+  </ItemGroup>
+
 </Project>
